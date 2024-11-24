@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useSnackbar } from '../contexts/SnackbarContext';
 
 const Register = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const { register } = useAuth();
   const navigate = useNavigate();
+  const { openSnackbar } = useSnackbar();
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await register(userName, password);
-      alert('Registration successful! Please login.');
+      openSnackbar('Registration successful! Please login.', 'info')
       navigate('/');
     } catch (error) {
-      alert('Registration failed.');
+      openSnackbar('Registration failed.', 'error')
     }
   };
 
