@@ -41,7 +41,7 @@ Before starting, make sure you have the following installed:
 
 1. Clone the repository:
 ```bash
-   git https://github.com/jejad2000/pfrontend.git
+   git clone https://github.com/jejad2000/pfrontend.git
    cd pfrontend
 ```
 2. Install dependencies for both the front-end and back-end:
